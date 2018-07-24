@@ -1,0 +1,30 @@
+<title>META/js</title>
+
+
+<table width=100%>
+	<tr>
+		<td><textarea id=src># put source code here</textarea></td>
+		<td><textarea id=meta># metacompiler code</textarea></td>
+		<td><textarea id=out># output</textarea></td>
+	</tr>
+</table>
+
+Press F12 to use,
+first follow this <a href="http://www.bayfronttechnologies.com/mc_workshop.html">METAII tutorial</a>
+
+<style>
+textarea { width:100%; }
+</style>
+
+<script>
+window.onload = function() {
+	console.log(hello());
+	console.log("run help() for more info\n\n");
+}
+
+function hello() { return "Hello, this is METAII-inspired metacompiler in JavaScript\n" }
+
+function help() {
+	return hello() + ``;
+}
+</script>
