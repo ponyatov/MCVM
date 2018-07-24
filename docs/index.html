@@ -1,13 +1,13 @@
 <title>META/js</title>
 
 
-<table width=100%>
+<table id=layout>
 	<tr>
 		<td><select id=srcmenu>
 				<option>source snippets...</option>
 				<option value="meta">metaII fig.5</option>
 		</select></td>
-		<td><select id=metamenu>
+		<td><select id=metamenu onchange="meta.value=metamenu[this.selectedIndex]">
 				<option>masm snippets...</option>
 				<option value="meta">metaII fig.5</option>
 		</select></td>
@@ -27,12 +27,32 @@ Press F12 to use, first follow this
 	tutorial</a>
 
 <style>
-select,textarea,#go { width: 100%; }
+* {
+	font-family: monospace;
+	font-size: 3vh;
+	background: black;
+	color: lightgreen;
+}
+
+#go { background: green; }
+
+html, body {
+	height: 100%;
+	overflow: hidden;
+}
+
+#layout, select, textarea, #go {
+	width: 100%;
+}
+
+textarea {
+	height: 88vh;
+}
 </style>
 
 <script>
 
-var metaII = `
+var metaII = `	
 	ADR PROGRAM
 	OUT1
 		TST '*1'
@@ -244,9 +264,12 @@ var metaII = `
 	L39
 		R
 		END
-`
+`;
+var metamenu = ["# meta assembly",metaII];
+var meta;
 
 window.onload = function() {
+	meta = document.getElementById("meta");
 	console.log(hello());
 	console.log("run help() for more info\n\n");
 }
